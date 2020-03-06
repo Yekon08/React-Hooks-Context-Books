@@ -3,9 +3,11 @@ import { ThemeContext } from '../contexts/ThemeContext'
 
 const ThemeToggle = () => {
     const context = useContext(ThemeContext)
+
     return (
         <>
-            <button onClick={() => context.ToggleTheme(context.isLightTheme)}>Toggle the theme</button>
+            <p>test</p>
+            <button onClick={context.toggleTheme}>Toggle the theme</button>
         </>
     )
 }
