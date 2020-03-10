@@ -1,5 +1,6 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { ThemeContext } from '../contexts/ThemeContext'
+import BookForm from './BookForm'
 
 const BookList = () => {
 
@@ -13,9 +14,15 @@ const BookList = () => {
         { title: 'the final empire', id: 3 }
     ])
 
-    const addBook = () => {
-        setBooks([...books, { title: `new book ${books.length}` , id: books.length+1 }])
+    const [age, setAge] = useState(20)
+
+    const addBook = (title) => {
+        setBooks([...books, { title , id: books.length+1 }])
     }
+
+    useEffect(() => {
+        console.log('useEffect HOOK', books)
+    }, [books])
 
     return (
         <div className='book-list' style={{ color: theme.syntax, background: theme.bg }}>
@@ -24,7 +31,8 @@ const BookList = () => {
                     return ( <li key={book.id} style={{ background: theme.ui}}>{book.title}</li> )
                 })}
             </ul>
-            <button onClick={addBook}>Add a book</button>
+            <BookForm addBook={addBook} />
+            <button onClick={() => {setAge(age + 1)}}>add 1 to age: {age}</button>
         </div>
     )
 }

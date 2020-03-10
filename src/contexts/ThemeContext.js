@@ -6,7 +6,7 @@ export const ThemeContext = createContext()
 // Create Provider Component
 export const ThemeContextProvider = (props) => {
 
-    const [isLightTheme, setIsLightTheme] = useState(true)
+    const [isLightTheme, setIsLightTheme] = useState(false)
     console.log('state: ', isLightTheme)
 
     // Initial State 
