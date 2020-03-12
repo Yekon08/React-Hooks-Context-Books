@@ -6,7 +6,6 @@ const ThemeToggle = () => {
 
     return (
         <>
-            <p>test</p>
             <button onClick={context.toggleTheme}>Toggle the theme</button>
         </>
     )
